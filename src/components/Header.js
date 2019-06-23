@@ -1,8 +1,27 @@
 import React from 'react'
 import {Box,Button,Text,  } from 'grommet'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {Menu,Apps, CircleQuestion, UserSettings} from 'grommet-icons'
 // Designing the header of the app
+const searchStyle = {
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    background:'#f6f6f6',
+    borderRadius:'8px',
+    width:'80%', 
+    height:'45px',
 
+}
+const appStyle = {
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'50%',
+    marginLeft:'50%'
+}
 const AppBar = props =>{
 
     return (
@@ -11,6 +30,7 @@ const AppBar = props =>{
           direction='row'
           style = {{borderBottom:"1px solid #eee"}}
           justify='between'
+          align='center'
           background='white'
           pad = {{left:'xsmall', right:'xsmall', top:'small', bottom:'xsmall' }}
 
@@ -20,8 +40,9 @@ const AppBar = props =>{
               direction='row'
               justify='flex-start'
               align='center' 
-              width='small'>
-                  <Button  onClick={props.toggleSidebar}><FontAwesomeIcon  size='2x' icon={['fas','bars']}/></Button>
+              basis='1/4'
+              >
+                  <Button icon={<Menu />} onClick={props.toggleSidebar} />
                   
                   <Text size='large'> Gmail </Text>
             </Box>
@@ -30,21 +51,26 @@ const AppBar = props =>{
               direction='row'
               justify='start'
               align='center'
-              background='#f6f6f6'
-              style={{borderRadius:'8px'}}
-              width='large'
+              basis='3/4'
+
                >
-                  <FontAwesomeIcon icon={['fas','search']}/>
-                  <input type='text' placeholder='Search Mail' />
+                   <div style={searchStyle} >
+                    <span style={{display:'inline-block',marginLeft:'15px'}}><FontAwesomeIcon icon={['fas','search']} size='lg'/></span>
+                    <input type='text' placeholder='Search Mail' />
+                    <Button icon={<FontAwesomeIcon icon={['fas','caret-down']}/>}/>
+                  </div>
               </Box>
 
               <Box 
-              tag='section'
-              direction='row'
-              justify='baseline'
-              align='center' 
-              width='small'>
-                  
+              tag='section' 
+              basis='1/4'
+              
+              >    
+              <div style={appStyle}>
+                  <Button icon={<CircleQuestion />}/>
+                  <Button icon={<Apps />}/>
+                  <Button icon={<UserSettings />}/>
+                  </div>
               </Box>
             
         </Box>
