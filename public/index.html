@@ -19,7 +19,56 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+
     <title>React App</title>
+    <style type="text/css">
+    *{
+      font-family: Arial, Helvetica, sans-serif;
+      color:#333;
+    }
+    body{
+      margin:0;
+    }
+    button{
+      padding:5px !important;
+    }
+    input[type='text']{
+      background:inherit;
+      border:1px solid transparent;
+      width:70%;
+      font-size:13px;
+      height:25px;
+      margin-left:5px;
+    }
+    
+    .sidebar-left{
+      border-right:1px solid #eee;
+    }
+    .sidebar-left a button{
+      margin-left:10px;
+    }
+    .active{
+      color:#d93025;
+      background:#fce8e6;
+      font-weight: bolder;
+    }
+    .sidebar-left a:hover {
+      color:#ddd;
+      background:#eee;
+      cursor:pointer;
+    }
+    .sidebar-left a span:nth-of-type(2){
+      font-size: 11px;
+      font-weight:bold;
+      display:inline-block;
+      border-radius:8px ;
+      padding:2px;
+      line-height: 14px!important;
+      margin-right:5px;
+      color:#333
+    }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
