@@ -25,10 +25,11 @@
     <style type="text/css">
     *{
       font-family: Arial, Helvetica, sans-serif;
-      color:#333;
+      
     }
     body{
       margin:0;
+      color:#333;
     }
     button{
       padding:5px !important;
@@ -36,29 +37,33 @@
     input[type='text']{
       background:inherit;
       border:1px solid transparent;
-      width:70%;
+      width:90%;
       font-size:13px;
       height:25px;
       margin-left:5px;
+  
+    }
+    input[type='text']:focus{
+      outline: none;
     }
     
     .sidebar-left{
       border-right:1px solid #eee;
     }
-    .sidebar-left a button{
-      margin-left:10px;
+    .sidebar-left li button{
+      margin-left:20px;
     }
     .active{
       color:#d93025;
       background:#fce8e6;
       font-weight: bolder;
     }
-    .sidebar-left a:hover {
-      color:#ddd;
+    .sidebar-left li:hover {
+      color:#333;
       background:#eee;
       cursor:pointer;
     }
-    .sidebar-left a span:nth-of-type(2){
+    .sidebar-left li span:nth-of-type(2){
       font-size: 11px;
       font-weight:bold;
       display:inline-block;
@@ -67,6 +72,10 @@
       line-height: 14px!important;
       margin-right:5px;
       color:#333
+    }
+    
+    .bottom button{
+      padding:10px!important; 
     }
     </style>
   </head>

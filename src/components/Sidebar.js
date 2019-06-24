@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Box, Button } from 'grommet'
-import {MailOption, Star, FormAdd, Add, UserManager, UserNew, Image} from 'grommet-icons'
+import {FormAdd, Add} from 'grommet-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 // function that manage the dashboard left sidebar
 export const LeftSidebar = props =>{
+    const [showLabel, setshowLabel] = useState(false)
     const spanStyle = {
         display:(props.sideBar)?'inline-block':'none',
         fontSize:'12px!important',
@@ -27,39 +29,91 @@ export const LeftSidebar = props =>{
         justifContent:'flex-start',
         alignItems:'center',
         margin:'10px',
-        width:'140px',
         padding:"5px",
         boxShadow:"0px 0px 2px 2px #ddd",
-        borderRadius:'25px'
+        borderRadius:'25px',
+        minWidth:'35px',
+        maxWidth:'130px'
     }
+
+   
      return   (
-            <Box className='sidebar-left' >
-                <section  style={composeStyle}><Button icon={<FormAdd />} /> <span style={spanStyle} >Compose</span></section>
-                <Box style={{borderBottom:'1px solid #eee',maxHeight:'300px'}} overflow={{vertical:'auto'}}>
-                    <a  style={sectionStyle}><Button icon={<MailOption />} /> <span style={spanStyle}>Primary</span></a>
-                    <a  style={sectionStyle}><Button icon={<Star/>} /> <span style={spanStyle}>Starred</span> <span>245</span> </a>
-                    <a style={sectionStyle}><Button icon={<Star  />} /> <span style={spanStyle}>Snoozed</span></a>
-                    <a style={sectionStyle}><Button icon={<Star/>} /> <span style={spanStyle}>Sent</span></a>
-                    <a style={sectionStyle}><Button icon={<Star/>} /> <span style={spanStyle}>Drafts</span></a>
-                    <a style={sectionStyle}><Button icon={<Star/>} /> <span style={spanStyle}>[lmap]/Trash</span></a>
-                    <a style={sectionStyle}><Button icon={<Star/>} /> <span style={spanStyle}>All Mail</span></a>
+            <Box className='sidebar-left' direction='column' justify='between'>
+                <Box>
+                <div  style={composeStyle}><Button icon={<FormAdd />} /> 
+                 <span style={spanStyle} >Compose</span>
+                </div>
+                <Box tag='ul' style={{borderBottom:'1px solid #eee',height:'200px'}} overflow={{vertical:'auto'}}>
+                    <li  style={sectionStyle}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','inbox']} color='#333' style={{fontSize:'1.5em'}}/>} /> <span style={spanStyle}>Primary</span>
+                    </li>
+                    <li  style={sectionStyle}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','star']} style={{fontSize:'1.5em'}}/>} /> 
+                        <span style={spanStyle}>Starred</span> 
+                        <span>245</span>
+                    </li>
+                    <li style={sectionStyle}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','clock']} style={{fontSize:'1.5em'}} />} /> <span style={spanStyle}>Snoozed</span>
+                     </li>
+                    <li style={sectionStyle}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','paper-plane']} style={{fontSize:'1.5em'}} />} /> <span style={spanStyle}>Sent</span>
+                     </li>
+                    <li style={sectionStyle}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','file']} style={{fontSize:'1.5em'}} />} /> <span style={spanStyle}>Drafts</span>
+                    </li>
+                    <li style={sectionStyle}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','tag']}/>} style={{fontSize:'1.5em'}} /> <span style={spanStyle}>[lmap]/Trash</span>
+                     </li>
+                    <li style={sectionStyle} onClick={()=>{setshowLabel(!showLabel)}}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','angle-down']} />} /> <span style={spanStyle}> {(showLabel)?'less':'more'}</span>
+                    </li>
+                    { showLabel && (<li style={sectionStyle}>
+                        <Button icon={<FontAwesomeIcon icon={['fas','info-circle']} style={{fontSize:'1.5em'}}/>} /> <span style={spanStyle}> Spam</span>
+                    </li>) }
+                    
                 </Box>
                 <Box>
                    <Box 
                         tag='section' 
                         direction='row' 
-                        justify='start' 
+                        justify='between' 
                         align='center' 
                         margin='small' 
                         style={{borderBottom:'1px solid #eee'}}> 
-                      <Button icon={<Image />} /> <span>Alade</span> <Button icon={<Add size='small' />} />
+                    <div>
+                        <Button icon={<FontAwesomeIcon icon={['fas','user-circle']} size='2x'/>} /> 
+                            <span>Alade <FontAwesomeIcon icon={['fas','angle-down']} /> </span>
+                    </div>
+                    <Button icon={<Add size='small' />} />
+
                      </Box>
                    <Box tag='section' direction='column'>
-                        <div><Button icon={<Image />} /> <span>Barakalah</span></div>
-                        <div><Button icon={<Image />} /> <span>Damilola</span></div>
+                        <Box 
+                            tag='div' 
+                            direction='row' 
+                            justify='between' 
+                            align='center' 
+                            margin={{'horizontal':'small'}} >
+                        <div>
+                        <Button icon={<FontAwesomeIcon icon={['fas','user-circle']} size='2x'/>} /> 
+                            <span>User <FontAwesomeIcon icon={['fas','angle-down']} /> </span>
+                        </div>
+                        <Button icon={<Add size='small' />} />
+                            </Box>
+                        
                    </Box>
                 </Box>
-                
+                </Box>
+                <Box 
+                    tag='div' 
+                    direction='row'
+                    justify='center'
+                    align='center'
+                    className='bottom'
+                    border={{color:'#eee',side:'horizontal'}}>
+                    <Button icon={<FontAwesomeIcon size='1x' icon={['fas','user']}  />}/>
+                    <Button icon={<FontAwesomeIcon size='1x' icon={['fab','google']} />}/>
+                </Box>
              </Box>
      );
 }
@@ -67,8 +121,16 @@ export const LeftSidebar = props =>{
 // function that manage the dashboard right sidebar
 export const RightSidebar = props =>{
     return (
-        <Box border='small' >
-            Rigth sidebar
+        <Box border={{color:'#eee',side:'left'}} direction='column' justify='start' pad='10px' >
+            <Box border={{color:'#eee',side:'bottom'}}>
+                <Button icon={<FontAwesomeIcon icon={['fas', 'calendar'] } color='#162c5f' style={{paddingBottom:'30px',fontSize:'1.5em'}} /> }/>
+                <Button icon={<FontAwesomeIcon icon={['fas', 'book'] } color='#f2c956' style={{paddingBottom:'30px',fontSize:'1.5em'}} /> }/>
+                <Button icon={<FontAwesomeIcon icon={['fas', 'tasks'] } color='#162c5f' style={{paddingBottom:'30px',fontSize:'1.5em'}} /> }/>
+            </Box>
+            <Box  direction='column' justify='between' align='center' height='medium'>
+            <Button icon={<Add size='small' />}  />
+            <Button icon={<FontAwesomeIcon icon={['fas','angle-right']} size='small' />} />
+            </Box>
         </Box>
 
     );
