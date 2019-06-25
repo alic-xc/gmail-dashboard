@@ -20,7 +20,8 @@ export const LeftSidebar = props =>{
         alignItems:'center',
         borderTopRightRadius:'20px',
         borderBottomRightRadius:'20px',
-        marginBottom:'1px'
+        marginBottom:'1px',
+        padding:'5px'
     }
 
     const composeStyle = {
@@ -44,28 +45,28 @@ export const LeftSidebar = props =>{
                  <span style={spanStyle} >Compose</span>
                 </div>
                 <Box tag='ul' style={{borderBottom:'1px solid #eee',height:'200px'}} overflow={{vertical:'auto'}}>
-                    <li  style={sectionStyle}>
-                        <Button icon={<FontAwesomeIcon icon={['fas','inbox']} color='#333' style={{fontSize:'1.5em'}}/>} /> <span style={spanStyle}>Primary</span>
+                    <li  style={sectionStyle} className='active'>
+                        <FontAwesomeIcon icon={['fas','inbox']} style={{fontSize:'1.5em'}}/> <span style={spanStyle}>Inbox</span>
                     </li>
                     <li  style={sectionStyle}>
-                        <Button icon={<FontAwesomeIcon icon={['fas','star']} style={{fontSize:'1.5em'}}/>} /> 
+                        <FontAwesomeIcon icon={['fas','star']} style={{fontSize:'1.5em'}} /> 
                         <span style={spanStyle}>Starred</span> 
                         <span>245</span>
                     </li>
                     <li style={sectionStyle}>
-                        <Button icon={<FontAwesomeIcon icon={['fas','clock']} style={{fontSize:'1.5em'}} />} /> <span style={spanStyle}>Snoozed</span>
+                        <FontAwesomeIcon icon={['fas','clock']} style={{fontSize:'1.5em'}} /> <span style={spanStyle}>Snoozed</span>
                      </li>
                     <li style={sectionStyle}>
-                        <Button icon={<FontAwesomeIcon icon={['fas','paper-plane']} style={{fontSize:'1.5em'}} />} /> <span style={spanStyle}>Sent</span>
+                        <FontAwesomeIcon icon={['fas','paper-plane']} style={{fontSize:'1.5em'}}  /> <span style={spanStyle}>Sent</span>
                      </li>
                     <li style={sectionStyle}>
-                        <Button icon={<FontAwesomeIcon icon={['fas','file']} style={{fontSize:'1.5em'}} />} /> <span style={spanStyle}>Drafts</span>
+                        <FontAwesomeIcon icon={['fas','file']} style={{fontSize:'1.5em'}}  /> <span style={spanStyle}>Drafts</span>
                     </li>
                     <li style={sectionStyle}>
-                        <Button icon={<FontAwesomeIcon icon={['fas','tag']}/>} style={{fontSize:'1.5em'}} /> <span style={spanStyle}>[lmap]/Trash</span>
+                        <FontAwesomeIcon icon={['fas','tag']} style={{fontSize:'1.5em'}} /> <span style={spanStyle}>[lmap]/Trash</span>
                      </li>
                     <li style={sectionStyle} onClick={()=>{setshowLabel(!showLabel)}}>
-                        <Button icon={<FontAwesomeIcon icon={['fas','angle-down']} />} /> <span style={spanStyle}> {(showLabel)?'less':'more'}</span>
+                        <FontAwesomeIcon icon={['fas','angle-down']} /> <span style={spanStyle}> {(showLabel)?'less':'more'}</span>
                     </li>
                     { showLabel && (<li style={sectionStyle}>
                         <Button icon={<FontAwesomeIcon icon={['fas','info-circle']} style={{fontSize:'1.5em'}}/>} /> <span style={spanStyle}> Spam</span>
@@ -81,10 +82,10 @@ export const LeftSidebar = props =>{
                         margin='small' 
                         style={{borderBottom:'1px solid #eee'}}> 
                     <div>
-                        <Button icon={<FontAwesomeIcon icon={['fas','user-circle']} size='2x'/>} /> 
-                            <span>Alade <FontAwesomeIcon icon={['fas','angle-down']} /> </span>
+                        <FontAwesomeIcon icon={['fas','user-circle']} size='2x'/> 
+                        <span>Alade <FontAwesomeIcon icon={['fas','angle-down']} /> </span>
                     </div>
-                    <Button icon={<Add size='small' />} />
+                    <Add size='small' />
 
                      </Box>
                    <Box tag='section' direction='column'>
@@ -95,10 +96,10 @@ export const LeftSidebar = props =>{
                             align='center' 
                             margin={{'horizontal':'small'}} >
                         <div>
-                        <Button icon={<FontAwesomeIcon icon={['fas','user-circle']} size='2x'/>} /> 
+                        <FontAwesomeIcon icon={['fas','user-circle']} size='2x'/>
                             <span>User <FontAwesomeIcon icon={['fas','angle-down']} /> </span>
                         </div>
-                        <Button icon={<Add size='small' />} />
+                        <Add size='small' />
                             </Box>
                         
                    </Box>
