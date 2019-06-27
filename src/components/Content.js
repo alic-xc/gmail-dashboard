@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Box, Button, CheckBox, Tabs, Tab, Table, TableBody, TableRow, TableCell} from 'grommet'
+import {Box, Button, CheckBox, Tabs, Tab} from 'grommet'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 // function that manage the dashboard left sidebar
@@ -78,6 +78,7 @@ export default class Content extends Component{
                     >
                     <span> &copy;2019 project by alic </span>
                     <span> Made with luv</span>
+                    <span> For Educational Purpose</span>
                 </Box>
                 
             </Box >
