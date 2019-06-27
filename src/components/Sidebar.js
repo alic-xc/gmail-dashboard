@@ -34,14 +34,15 @@ export const LeftSidebar = props =>{
         boxShadow:"0px 0px 2px 2px #ddd",
         borderRadius:'25px',
         minWidth:'35px',
-        maxWidth:'130px'
+        maxWidth:'135px'
+        
     }
-
+    
    
      return   (
             <Box className='sidebar-left' direction='column' justify='between'>
                 <Box>
-                <div  style={composeStyle}><Button icon={<FormAdd />} /> 
+                <div  style={composeStyle} className={(props.sideBar)?'':'composeWidth'}><Button icon={<FormAdd />} /> 
                  <span style={spanStyle} >Compose</span>
                 </div>
                 <Box tag='ul' style={{borderBottom:'1px solid #eee',height:'200px'}} overflow={{vertical:'auto'}}>
@@ -88,21 +89,7 @@ export const LeftSidebar = props =>{
                     <Add size='small' />
 
                      </Box>
-                   <Box tag='section' direction='column'>
-                        <Box 
-                            tag='div' 
-                            direction='row' 
-                            justify='between' 
-                            align='center' 
-                            margin={{'horizontal':'small'}} >
-                        <div>
-                        <FontAwesomeIcon icon={['fas','user-circle']} size='2x'/>
-                            <span>User <FontAwesomeIcon icon={['fas','angle-down']} /> </span>
-                        </div>
-                        <Add size='small' />
-                            </Box>
-                        
-                   </Box>
+                   
                 </Box>
                 </Box>
                 <Box 
