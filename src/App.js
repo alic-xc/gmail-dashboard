@@ -24,6 +24,7 @@ const theme = {
     font:{
       size:'12px',
     },
+    
   }
 }
 
